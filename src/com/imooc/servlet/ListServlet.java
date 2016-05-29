@@ -15,41 +15,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.imooc.bean.Message;
-
+import com.imooc.service.QueryService;
 
 /**
  * 列表页面初始化控制
+ * 
  * @author Yawei Li
  *
  */
 @SuppressWarnings("serial")
-public class ListServlet extends HttpServlet{
+public class ListServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		String command = req.getParameter("command");
+		String description = req.getParameter("description");
+		req.setAttribute("command", command);
+		req.setAttribute("description", description);
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/micro_message","root","111900");
-			String sql = "select ID, COMMAND, DESCRIPTION, CONTENT from MESSAGE";
-			PreparedStatement statement = conn.prepareStatement(sql);
-			ResultSet rs = statement.executeQuery();
-			List<Message> messageList = new ArrayList<Message>();
-			while(rs.next()){
-				Message message = new Message();
-				messageList.add(message);
-				message.setId(rs.getString("ID"));
-				message.setCommand(rs.getString("COMMAND"));
-				message.setDescription(rs.getString("DESCRIPTION"));
-				message.setContent(rs.getString("CONTENT"));
-			}
-			//原生jsp在页面上设置对象用于解析
-			req.setAttribute("messageList", messageList);
-		} catch (ClassNotFoundException | SQLException e) {
+			QueryService listService = new QueryService();
+			// 原生jsp在页面上设置对象用于解析
+			req.setAttribute("messageList", listService.queryMessageList(command, description));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		// 将request和response对象传递给指定页面
 		req.getRequestDispatcher("/WEB-INF/jsp/back/list.jsp").forward(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
