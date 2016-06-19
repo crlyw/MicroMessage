@@ -1,7 +1,7 @@
 package com.imooc.bean;
 
 /**
- * 与消息表对应的实体类
+ * 涓庢秷鎭〃瀵瑰簲鐨勫疄浣撶被
  * 
  * @author Yawei Li
  *

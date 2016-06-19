@@ -11,11 +11,11 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class DBAccess {
 
 	public SqlSession getSqlSession() throws IOException{
-		//Í¨¹ıÅäÖÃÎÄ¼ş»ñÈ¡Êı¾İ¿âÁ¬½ÓĞÅÏ¢
+		//é€šè¿‡é…ç½®æ–‡ä»¶è·å–æ•°æ®åº“è¿æ¥ä¿¡æ¯
 		Reader reader = Resources.getResourceAsReader("com/imooc/config/Configuration.xml");
-		//Í¨¹ıÅäÖÃĞÅÏ¢¹¹½¨Ò»¸öSqlSessionFactory
+		//é€šè¿‡é…ç½®ä¿¡æ¯æ„å»ºä¸€ä¸ªSqlSessionFactory
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-		//Í¨¹ısqlSessionFactory´ò¿ªÒ»¸öÊı¾İ¿â»á»°
+		//é€šè¿‡sqlSessionFactoryæ‰“å¼€ä¸€ä¸ªæ•°æ®åº“ä¼šè¯
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		return sqlSession;
 	}

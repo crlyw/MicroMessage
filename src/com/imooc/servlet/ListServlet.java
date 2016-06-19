@@ -18,7 +18,7 @@ import com.imooc.bean.Message;
 import com.imooc.service.QueryService;
 
 /**
- * ÁĞ±íÒ³Ãæ³õÊ¼»¯¿ØÖÆ
+ * åˆ—è¡¨é¡µé¢åˆå§‹åŒ–æ§åˆ¶
  * 
  * @author Yawei Li
  *
@@ -35,12 +35,12 @@ public class ListServlet extends HttpServlet {
 		req.setAttribute("description", description);
 		try {
 			QueryService listService = new QueryService();
-			// Ô­ÉújspÔÚÒ³ÃæÉÏÉèÖÃ¶ÔÏóÓÃÓÚ½âÎö
+			//åŸç”Ÿjspåœ¨é¡µé¢ä¸Šè®¾ç½®å¯¹è±¡ç”¨äºè§£æ
 			req.setAttribute("messageList", listService.queryMessageList(command, description));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// ½«requestºÍresponse¶ÔÏó´«µİ¸øÖ¸¶¨Ò³Ãæ
+		//å°†requestå’Œresponseå¯¹è±¡ä¼ é€’ç»™æŒ‡å®šé¡µé¢
 		req.getRequestDispatcher("/WEB-INF/jsp/back/list.jsp").forward(req, resp);
 	}
 

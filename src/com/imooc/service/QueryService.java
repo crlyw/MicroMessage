@@ -24,7 +24,7 @@ public class QueryService {
 				if(i != 0){
 					result.append("<br/>");
 				}
-				result.append("回复【" + messageList.get(i).getCommand() + "】可以查看" + messageList.get(i).getDescription());
+				result.append("鍥炲[" + messageList.get(i).getCommand() + "]鍙互鏌ョ湅" + messageList.get(i).getDescription());
 			}
 			return result.toString();
 		}

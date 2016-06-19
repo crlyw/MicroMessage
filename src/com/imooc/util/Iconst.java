@@ -2,7 +2,7 @@ package com.imooc.util;
 
 public interface Iconst {
 
-	public static final String NO_MATCHING_CONTENT = "¿Í¹Ù£¬ ÄãÃ»°´Ì×Â·³öÅÆ......ÎÒÌı²»¶®£¡";
+	public static final String NO_MATCHING_CONTENT = "å®¢å®˜ï¼Œä½ æ²¡æŒ‰å¥—å‡ºç‰Œ......æˆ‘å¬ä¸æ‡‚";
 	
-	public static final String HELP_COMMAND = "°ïÖú";
+	public static final String HELP_COMMAND = "å¸®åŠ©";
 }
